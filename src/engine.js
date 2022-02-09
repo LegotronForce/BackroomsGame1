@@ -1,9 +1,30 @@
 /** Base class for the Engine */
 class Engine {
+    imageDir = '';
+
     /** @type {BaseEntity[]} entities */
     entities = [];
+    
+    /** @type {Array<{id: number, sprite: Sprite}>} sprites */
+    sprites = [];
 
     constructor() {}
+
+    /** @param {string} directory */
+    setImageDirectory(directory) { this.imageDir = directory; }
+    
+    /**
+     * @param {number} id
+     * @param {string} directory The directory inside the `imageDirectory` directory. 
+     * @param {number} scaleFactor The scale of the image
+     */
+    loadSprite(id, directory, scaleFactor) {
+        this.sprites.push({id: id, sprite: new Sprite(this.imageDir + directory, scaleFactor)});
+    }
+
+    getSprite() {
+
+    }
 
     /** @argument {BaseEntity} entity */
     addEntity(entity) { this.entities.push(entity); }
@@ -14,10 +35,14 @@ class Engine {
                 return this.entities[i];
             }
         }
-        return;
     }
 
-    removeEntity(id) {}
+    /**
+     * @argument {number} id
+     */
+    removeEntity(id) {
+
+    }
 
     // `generateID()` is useful in making custom IDs
     // for entities that can be addressed.
@@ -41,12 +66,14 @@ class Sprite {
 
     /**
      * @argument {string} location The location of the image.
+     * @argument {number} scaleFactor
      */
-    constructor(location, width, height) {
+    constructor(location, scaleFactor=10) {
         this.location = location;
         
         loadImage(this.location, img => {
             this.image = img;
+            this.image.resize(scaleFactor, 0);
         });
     }
 

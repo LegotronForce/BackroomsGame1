@@ -1,5 +1,15 @@
+/** @type {Engine} engine */
+let engine = new Engine();
+
+function loadSprites() {
+    // Load sprites in here to use for entities
+    engine.addSprite('test');
+}
+
 function preload() {
-    // Load sprites, images, maps, etc.
+    engine = new Engine();
+    engine.setImageDirectory('img/');
+    loadSprites();
 }
 
 function setup() {
