@@ -1,5 +1,5 @@
 /** Base class for the Engine */
-export class Engine {
+class Engine {
     /** @type {BaseEntity[]} entities */
     entities = [];
 
@@ -33,7 +33,7 @@ export class Engine {
     }
 }
 
-export class Sprite {
+class Sprite {
     /** @type {string} The location of the image */
     location;
     /** @type {p5.Image} */
@@ -54,7 +54,7 @@ export class Sprite {
     getImage() { return this.image; }
 }
 
-export class BaseEntity {
+class BaseEntity {
     /**
      * @argument {string} name The name of the entity
      * @argument {number} id
