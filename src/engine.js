@@ -5,7 +5,7 @@ class Engine {
     /** @type {BaseEntity[]} entities */
     entities = [];
     
-    /** @type {Array<{id: number, sprite: Sprite}>} sprites */
+    /** @type {{id: number, sprite: Sprite}[]} sprites */
     sprites = [];
 
     constructor() {}
@@ -22,8 +22,13 @@ class Engine {
         this.sprites.push({id: id, sprite: new Sprite(this.imageDir + directory, scaleFactor)});
     }
 
-    getSprite() {
-
+    /**
+     * @param {number} id
+     */
+    getSprite(id) {
+        for(let i=0;i<this.sprites.length;i++) {
+            if(this.sprites[i].id == id) return this.sprites[i];
+        }
     }
 
     /** @argument {BaseEntity} entity */
