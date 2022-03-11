@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Backrooms Game</title>
+        <link href="/web/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script> (P5.JS - Online) -->
+        <script src="/web/js/p5.js"></script>
+    </head>
+    <body>
+        <input type="range" min="1" max="4" id="size-bar">
+        <script src="/web/js/engine.js"></script>
+        <script src="/web/js/index.js"></script>
+        <button onclick="engine.getSprite(tilesetID).sprite.scaleFactor = parseInt(document.getElementById('size-bar').value);">Set Size</button>
+    </body>
+</html>
